@@ -10,7 +10,9 @@
 tHTCS2 HCS1;
 int blocks[2] = {1, 2};
 
-#include "functions.c"
+#include "miscFunc.c"
+#include "senseFunc.c"
+#include "moveFunc.c"
 #include "zone1.c"
 #include "zone2.c"
 #include "zone3.c"

@@ -1,30 +1,3 @@
-int getColourReflection(int portNumber){
-	switch(portNumber){
-		case 2:
-			return getColorReflected(CS2);
-		case 3:
-			return getColorReflected(CS3);
-		default:
-			return 0;
-	}
-}
-
-int min(int num1, int num2){
-	if (num1<num2){
-		return num1;
-	}
-	return num2;
-}
-
-int htColor(int portNumber){
-	readSensor(&HCS1);
-	switch(portNumber){
-	case 1:
-		return HCS1.color;
-	default:
-		return 0;
-	}
-}
 void movePID(float leftSpeed, float leftKP, float leftKI, float leftKD, float leftAcc, float leftDegrees, float rightSpeed, float rightKP, float rightKI, float rightKD, float rightAcc, float rightDegrees){
 	clearTimer(T2);
 	int lSpeed;
@@ -74,6 +47,7 @@ void movePID(float leftSpeed, float leftKP, float leftKI, float leftKD, float le
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 }
+
 // States: 0: Degrees, 1: Seconds, 2: While Reflection > Target, 3: While Reflection < Target
 
 void lfPID(int state, float speed, float midPoint, float kP, float kI, float kD, float target, int portNum){
@@ -199,93 +173,3 @@ void lsPID(int sensor1, float mid1, float kP1, float kI1, float kD1, int sensor2
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 }
-
-int getColorHTMarker(){ // 0 is no color, 1 is blue, 2 is green
-	if (htColor(1)==2||htColor(1)==3){
-		return 1;
-		}else if (htColor(1)==4){
-		return 2;
-		}else{
-		return 0;
-	}
-}
-int getColorHT(){
-	if (htColor(1)==2||htColor(1)==3){
-		return 1;
-		}else if (htColor(1)==4){
-		return 2;
-		}else{
-		return 0;
-	}
-}
-void pickBlock(){
-	setMotorSpeed(arm, 30);
-	sleep(1100);
-	setMotorSpeed(arm, -30);
-	sleep(1200);
-	setMotorSpeed(arm, 0);
-}
-void dropBlock(){
-	setMotorSpeed(grab, 100);
-	sleep(1100);
-	setMotorSpeed(grab, -70);
-	sleep(1000);
-	setMotorSpeed(grab, 0);
-	resetMotorEncoder(grab);
-}
-task sense(){
-	int col = 0;
-	while (true){
-		col = getColorHTMarker();
-		if (col>0){
-			blocks[0] = col;
-			break;
-		}
-	}
-
-	waitUntil(htColor(1)==0);
-
-	col = 0;
-
-	while (true){
-		col = getColorHTMarker();
-		if (col>0){
-			blocks[1] = col;
-			break;
-		}
-	}
-	switch(blocks[0]){
-	case 1:
-		playSound(soundException);
-		break;
-	case 2:
-		playSound(soundBeepBeep);
-		break;
-	default:
-		blocks[0] = 2;
-		playSound(soundDownwardTones);
-		break;
-	}
-	sleep(1000);
-	switch(blocks[1]){
-	case 1:
-		playSound(soundException);
-		break;
-	case 2:
-		playSound(soundBeepBeep);
-		break;
-	default:
-		blocks[1] = 1;
-		playSound(soundDownwardTones);
-		break;
-	}
-	stopTask(sense);
-}
-task releaseBlock(){
-		setMotorSpeed(arm, 15);
-		sleep(700);
-		setMotorSpeed(arm, -15);
-		sleep(700);
-		setMotorSpeed(arm, 0);
-		stopTask(releaseBlock);
-	}
