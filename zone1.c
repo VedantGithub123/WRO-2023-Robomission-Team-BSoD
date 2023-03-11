@@ -18,5 +18,5 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 	waitUntil(getColorReflected(CS2)>50);
 	waitUntil(getColorReflected(CS2)<30);
 	lsPID(2, 35, -0.25, 0, 0, 3, 30, 0.25, 0, 0, 800);
-	movePID(50,-0.3,0,0,0.06,170,50,-0.3,0,0,0.06,-170);
+	movePID(50,-0.3,0,0,0.06,200,50,-0.3,0,0,0.06,-200);
 }

@@ -226,8 +226,10 @@ void pickBlock(){
 	setMotorSpeed(arm, 0);
 }
 void dropBlock(){
+	//setMotorSpeed(grab, 20);
+	//sleep(100);
 	setMotorSpeed(grab, 100);
-	sleep(1100);
+	sleep(1000);
 	setMotorSpeed(grab, -70);
 	sleep(1000);
 	setMotorSpeed(grab, 0);
