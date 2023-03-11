@@ -23,10 +23,10 @@ task main()
 	initSensor(&HCS1, S4);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	zone1();
-	zone2();
-	zone3();
-	zone4();
+	//zone1();
+	//zone2();
+	//zone3();
+	//zone4();
 	zone5();
 	displayCenteredBigTextLine(5, "%d", time100(T1));
   sleep(10000);

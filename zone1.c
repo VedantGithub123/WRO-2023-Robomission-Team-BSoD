@@ -12,7 +12,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 	movePID(20,-0.5,0,0,0.06,-170,20,-0.5,0,0,0.06,170);
-	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.15,535);
+	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.15,527);
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
 	waitUntil(getColorReflected(CS2)>50);

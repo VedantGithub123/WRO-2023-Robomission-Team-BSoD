@@ -31,10 +31,18 @@ void zone4(){ // This zone grabs up the ships
 	movePID(40,-0.5,0,0,0.06,600,40,-0.5,0,0,0.06,-600);
 	setMotorSpeed(grab, 100);
 	sleep(1000);
-	setMotorSpeed(grab, 20);
+	setMotorSpeed(grab, 10);
 	clearTimer(T4);
-	while (time1(T4)<5000){
+	setMotorSpeed(left, 0);
+	setMotorSpeed(right, 0);
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
+	while (time1(T4)<1000){
 		setMotorSpeed(left, min((time1(T4)*0.1), 50));
 		setMotorSpeed(right, -1*min((time1(T4)*0.1), 50));
 	}
+	setMotorSpeed(left, 0);
+	setMotorSpeed(right, 0);
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
 }
