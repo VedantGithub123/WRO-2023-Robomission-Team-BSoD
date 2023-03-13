@@ -69,7 +69,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(right);
 	movePID(20,-0.5,0,0,0.06,-145,20,-0.5,0,0,0.06,145);
 	dropBlock();
-	movePID(20,-0.5,0,0,0.06,-210,20,-0.5,0,0,0.06,210);
+	movePID(20,-0.5,0,0,0.06,-205,20,-0.5,0,0,0.06,205);
 	dropBlock();
 	movePID(20,-0.5,0,0,0.06,-80,20,-0.5,0,0,0.06,80);
 	dropBlock();

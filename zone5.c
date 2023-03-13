@@ -27,41 +27,51 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 	resetMotorEncoder(right);
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
-	waitUntil(getMotorEncoder(right)>80);
+	waitUntil(getMotorEncoder(right)>85);
 	lfPID(0, -10, 30, 0.3, 0, 0, 1000, 3);
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	sensorReset(GS1);
-	sleep(1000);
 	setMotorSpeed(right, 20);
-	waitUntil(getGyroValue()<-90);
+	waitUntil(htColor(1)>5);
+	resetMotorEncoder(right);
+	setMotorSpeed(right, 10);
+	waitUntil(getMotorEncoder(right)>148);
 	setMotorSpeed(right, 0);
 	setMotorSpeed(left, 20);
 	setMotorSpeed(right, -20);
 	waitUntil(getColorReflected(CS2)>50);
 	waitUntil(getColorReflected(CS2)<30);
 	lsPID(2, 35, 0.33, 0, 0, 3, 30, -0.33, 0, 0, 1200);
-	movePID(40,-0.5,0,0,0.06,250,40,-0.5,0,0,0.06,250);
-	clearTimer(T4);
-	while (time1(T4)<2000){
-		setMotorSpeed(left, min((time1(T4)*2), 40));
-		setMotorSpeed(right, -1*min((time1(T4)*2), 40));
-	}
+	movePID(30,-0.4,0,0,0.06,230,30,-0.4,0,0,0.06,230);
+
+
+	setMotorSpeed(left, 20);
+	setMotorSpeed(right, -20);
+
+	waitUntil(getMotorEncoder(left)>530);
+
+	waitUntil(getColorReflected(CS3)>50);
+	waitUntil(getColorReflected(CS3)<30);
+	lsPID(2, 35, 0.43, 0, 0, 3, 30, -0.43, 0, 0, 1200);
+
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	sensorReset(GS1);
-	sleep(1000);
-	setMotorSpeed(left, -30);
-	waitUntil(getGyroValue()>95);
-	waitUntil(getColourReflection(2)<20);
-	setMotorSpeed(left, 0);
-	setMotorSpeed(right, 0);
-	resetMotorEncoder(left);
-	resetMotorEncoder(right);
+	movePID(50,-0.5,0,0,0.06,-590,50,-0.5,0,0,0.06,0);
+	//sleep(1000);
+	//setMotorSpeed(left, -15);
+	////waitUntil(getColourReflection(2)>50);
+	//waitUntil(getColourReflection(2)<20);
+	//waitUntil(getColourReflection(3)<20);
+	//resetMotorEncoder(left);
+	//waitUntil(getMotorEncoder(left)<-30);
+	//setMotorSpeed(left, 0);
+	//setMotorSpeed(right, 0);
+	//resetMotorEncoder(left);
+	//resetMotorEncoder(right);
 	clearTimer(T4);
 	while (time1(T4)<1000){
 		setMotorSpeed(left, min((time1(T4)*2), 40));
