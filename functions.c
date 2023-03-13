@@ -173,7 +173,7 @@ void lfPID(int state, float speed, float midPoint, float kP, float kI, float kD,
 }
 
 void lsPID(int sensor1, float mid1, float kP1, float kI1, float kD1, int sensor2, float mid2, float kP2, float kI2, float kD2, float time){
-	clearTimer(T3);
+	clearTimer(T1);
 
 	int lSpeed;
 	int rSpeed;
@@ -183,13 +183,13 @@ void lsPID(int sensor1, float mid1, float kP1, float kI1, float kD1, int sensor2
 	int rOldRef = 0;
 	int rIntegral;
 
-	while (time1(T3)<time){
-		lSpeed = (getColourReflection(sensor1)-mid1)*kP1+(getColourReflection(sensor1)-lOldRef)/(time1(T3)-oldTime)*kD1;
-		rSpeed = (getColourReflection(sensor2)-mid2)*kP2+(getColourReflection(sensor2)-rOldRef)/(time1(T3)-oldTime)*kD2;
+	while (time1(T1)<time){
+		lSpeed = (getColourReflection(sensor1)-mid1)*kP1+(getColourReflection(sensor1)-lOldRef)/(time1(T1)-oldTime)*kD1;
+		rSpeed = (getColourReflection(sensor2)-mid2)*kP2+(getColourReflection(sensor2)-rOldRef)/(time1(T1)-oldTime)*kD2;
 
 		setMotorSpeed(left, lSpeed);
 		setMotorSpeed(right, rSpeed);
-		oldTime = time1(T3);
+		oldTime = time1(T1);
 		lOldRef = getColourReflection(sensor1);
 		rOldRef = getColourReflection(sensor2);
 		sleep(10);
@@ -226,9 +226,9 @@ void pickBlock(){
 	setMotorSpeed(arm, 0);
 }
 void dropBlock(){
-	//setMotorSpeed(grab, 20);
-	//sleep(100);
-	setMotorSpeed(grab, 100);
+	setMotorSpeed(grab, 40);
+	sleep(100);
+	setMotorSpeed(grab, 80);
 	sleep(1000);
 	setMotorSpeed(grab, -70);
 	sleep(1000);
@@ -290,4 +290,7 @@ task releaseBlock(){
 		sleep(700);
 		setMotorSpeed(arm, 0);
 		stopTask(releaseBlock);
-	}
+}
+int getGyroValue(){
+	return SensorValue[GS1];
+}

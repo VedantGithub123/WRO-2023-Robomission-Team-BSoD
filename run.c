@@ -1,3 +1,4 @@
+#pragma config(Sensor, S1,     GS1,            sensorEV3_Gyro)
 #pragma config(Sensor, S2,     CS2,            sensorEV3_Color)
 #pragma config(Sensor, S3,     CS3,            sensorEV3_Color)
 #pragma config(Motor,  motorA,          grab,          tmotorEV3_Medium, openLoop, encoder)
@@ -19,16 +20,22 @@ int blocks[2] = {1, 2};
 
 task main()
 {
-	clearTimer(T1);
+
+	clearTimer(T3);
 	initSensor(&HCS1, S4);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	//zone1();
-	//zone2();
-	//zone3();
-	//zone4();
+	zone1();
+	zone2();
+	zone3();
+	zone4();
 	zone5();
-	displayCenteredBigTextLine(5, "%d", time100(T1));
+	displayCenteredBigTextLine(5, "%d", time100(T3));
+	if (time100(T3)>1200){
+		playSound(soundDownwardTones);
+	}else{
+		playSound(soundUpwardTones);
+	}
   sleep(10000);
 
 }
