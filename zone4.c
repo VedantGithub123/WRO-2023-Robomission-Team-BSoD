@@ -6,7 +6,7 @@ void zone4(){ // This zone grabs up the ships
 	setMotorSpeed(grab, 100);
 	sleep(800);
 	setMotorSpeed(grab, 20);
-	movePID(40,-0.5,0,0,0.06,1000,40,-0.5,0,0,0.06,-1000);
+	movePID(40,-0.5,0,0,0.06,710,40,-0.5,0,0,0.06,-710);
 	setMotorSpeed(grab, -100);
 	waitUntil(getMotorEncoder(grab)<=0);
 	setMotorSpeed(grab, 0);
@@ -23,12 +23,20 @@ void zone4(){ // This zone grabs up the ships
 	setMotorSpeed(right, 0);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	movePID(40,-0.5,0,0,0.06,-215,40,-0.5,0,0,0.06,215);
-	movePID(20,-0.5,0,0,0.06,0,40,-0.5,0,0,0.06,530);
-	movePID(40,-0.5,0,0,0.06,600,40,-0.5,0,0,0.06,-600);
-	setMotorSpeed(grab, 100);
+	movePID(40,-0.5,0,0,0.06,-225,40,-0.5,0,0,0.06,225);
+	movePID(20,-0.5,0,0,0.06,0,40,-0.5,0,0,0.06,540);
+	movePID(40,-0.5,0,0,0.06,570,40,-0.5,0,0,0.06,-570);
+
+	setMotorSpeed(arm, 25);
+	setMotorSpeed(grab, 25);
 	sleep(1000);
-	setMotorSpeed(grab, 10);
+	setMotorSpeed(arm, -85);
+	setMotorSpeed(grab, -85);
+	sleep(1000);
+	setMotorSpeed(arm, 0);
+	setMotorSpeed(grab, 0);
+	stopTask(releaseBlock);
+
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
 	resetMotorEncoder(left);
