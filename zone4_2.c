@@ -29,7 +29,7 @@ void zone4(){ // This zone grabs up the ships
 
 	// Get into position to grab the big ship
 
-	movePID(60,-0.2,0,0,0.05,590,30,-0.9,0,0,0.06,0);
+	movePID(60,-0.2,0,0,0.05,575,30,-0.9,0,0,0.06,0);
 
 	movePID(40,-0.5,0,0,0.06,770,40,-0.5,0,0,0.06,-770);
 

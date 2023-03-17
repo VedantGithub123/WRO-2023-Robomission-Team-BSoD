@@ -1,5 +1,7 @@
 int getColourReflection(int portNumber){ // Function to get color reflection by sensor
 	switch(portNumber){
+		case 1:
+			return getColorReflected(CS1);
 		case 2:
 			return getColorReflected(CS2);
 		case 3:

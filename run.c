@@ -1,3 +1,4 @@
+#pragma config(Sensor, S1,     CS1,            sensorEV3_Color)
 #pragma config(Sensor, S2,     CS2,            sensorEV3_Color)
 #pragma config(Sensor, S3,     CS3,            sensorEV3_Color)
 #pragma config(Motor,  motorA,          grab,          tmotorEV3_Medium, openLoop, encoder)
@@ -9,8 +10,9 @@
 #include "hitechnic-colour-v2.h" // Includes the code for the hitechnic color sensor
 tHTCS2 HCS1; // Creates a hitechnic sensor object
 int blocks[2] = {1, 2}; // Creates the default block options
-int midpoint2 = 46; // Globally defines the midpoint for the color sensor in port 2
-int midpoint3 = 35; // Globally defines the midpoint for the color sensor in port 3
+int midpoint1 = 35; // Globally defines the midpoint for the color sensor in port 1
+int midpoint2 = 50; // Globally defines the midpoint for the color sensor in port 2
+int midpoint3 = 40; // Globally defines the midpoint for the color sensor in port 3
 
 // SLOW CODE:
 //#include "functions.c"
@@ -32,13 +34,24 @@ int midpoint3 = 35; // Globally defines the midpoint for the color sensor in por
 
 task main()
 {
+
+	/* Reference Notes:
+	 		- 543 degrees is a 90 degree one motor turn
+		 	- 271 degrees is a 90 degree two motor turn
+ 	  	- 360 degrees is about 20cm
+	*/
+
+
 	clearTimer(T3); // Clears the timer to time the run
 
+
 	initSensor(&HCS1, S4); // Assigns port 4 to the hitechnic sensor object
+
 
 	// Resets motors
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
+
 
 	// Calls all zones
 	zone1();
@@ -47,10 +60,12 @@ task main()
 	zone4();
 	zone5();
 
+
 	// Shows the time on the robot and on the debug stream
 	displayCenteredBigTextLine(5, "%d", time100(T3));
 	clearDebugStream();
   writeDebugStream("%d", time100(T3));
+
 
   // Plays good sound if in time, plays bad sound if overtime
 	if (time100(T3)>1200){

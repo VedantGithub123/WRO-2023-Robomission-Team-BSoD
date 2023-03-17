@@ -18,7 +18,7 @@ void dropBlock(){ // Drops a block
 	sleep(400);
 	setMotorSpeed(grab, 80);
 	sleep(750);
-	setMotorSpeed(grab, -50);
+	setMotorSpeed(grab, -80);
 	sleep(1200);
 	setMotorSpeed(grab, 0);
 	resetMotorEncoder(grab);
@@ -35,7 +35,7 @@ task sense(){ // Sensing task
 	}
 
 	waitUntil(htColor(1)==0);
-
+	sleep(10);
 	col = 0;
 
 	while (true){

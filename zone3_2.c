@@ -40,7 +40,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	// Get into posiiton for dropping the blocks
 
-	movePID(70,-0.5,0,0,0.15,285,70,-0.5,0,0,0.15,285);
+	movePID(70,-0.5,0,0,0.15,282,70,-0.5,0,0,0.15,282);
 
 	clearTimer(T4);
 
@@ -69,7 +69,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	waitUntil(getColorReflected(CS2)>midpoint2-15);
 
-	lsPID(2, midpoint2, -0.3, 0, 0, 3, midpoint3, 0.4, 0, 0, 1200);
+	lsPID(2, midpoint2-3, -0.3, 0, 0, 3, midpoint3, 0.4, 0, 0, 1200);
 
 
 	// Drops blocks onto the small ship
@@ -79,7 +79,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
 
-	sleep(30);
+	sleep(90);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
@@ -88,7 +88,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-100,20,-0.5,0,0,0.06,100);
+	movePID(20,-0.5,0,0,0.06,-90,20,-0.5,0,0,0.06,90);
 
 	dropBlock();
 }
