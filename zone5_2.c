@@ -2,11 +2,11 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 	// Move onto the line
 
-	movePID(40,-0.5,0,0,0.12,-180,70,-0.5,0,0,0.06,0);
+	movePID(70,-0.3,0,0,0.06,-180,70,-0.5,0,0,0.06,0);
 
-	movePID(70,-0.5,0,0,0.12,0,70,-0.5,0,0,0.12,280);
+	movePID(70,-0.3,0,0,0.06,0,70,-0.5,0,0,0.12,280);
 
-	movePID(40,-0.5,0,0,0.12,-640,70,-0.5,0,0,0.06,0);
+	movePID(70,-0.3,0,0,0.06,-640,70,-0.5,0,0,0.06,0);
 
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
@@ -85,11 +85,11 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 
 	setMotorSpeed(left, 20);
-	waitUntil(getMotorEncoder(left)>120);
+	waitUntil(getMotorEncoder(left)>140);
 	setMotorSpeed(left, 0);
 
 	setMotorSpeed(right, -20);
-	waitUntil(getMotorEncoder(right)<-160);
+	waitUntil(getMotorEncoder(right)<-170);
 	setMotorSpeed(right, 0);
 
 	lfPID(1, 10, midpoint1, -0.25, 0, 0, 5000, 1);

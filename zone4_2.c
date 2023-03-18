@@ -18,7 +18,7 @@ void zone4(){ // This zone grabs up the ships
 
 	setMotorSpeed(grab, 20);
 
-	movePID(70,-0.4,0,0,0.06,700,70,-0.4,0,0,0.06,-700);
+	movePID(70,-0.4,0,0,0.06,690,70,-0.4,0,0,0.06,-690);
 
 	setMotorSpeed(grab, -100);
 	waitUntil(getMotorEncoder(grab)<=0);
@@ -29,7 +29,7 @@ void zone4(){ // This zone grabs up the ships
 
 	// Get into position to grab the big ship
 
-	movePID(60,-0.2,0,0,0.05,575,30,-0.9,0,0,0.06,0);
+	movePID(60,-0.2,0,0,0.05,573,30,-0.9,0,0,0.06,0);
 
 	movePID(40,-0.5,0,0,0.06,770,40,-0.5,0,0,0.06,-770);
 

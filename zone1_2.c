@@ -21,13 +21,15 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 
 	// Gets into position for line squaring
-	movePID(30,-0.5,0,0,0.06,-167,30,-0.5,0,0,0.06,167);
+	movePID(30,-0.5,0,0,0.06,-161,30,-0.5,0,0,0.06,161);
 
 	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.15,530);
 
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
+
 	waitUntil(getColorReflected(CS2)>midpoint2+15);
+
 	waitUntil(getColorReflected(CS2)<midpoint2-15);
 
 
