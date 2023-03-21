@@ -6,20 +6,20 @@ int min(int num1, int num2){ // Finds minimum value of 2 integers
 }
 
 void pickBlock(){ // Picks up a block
-	setMotorSpeed(arm, 20);
-	sleep(1600);
-	setMotorSpeed(arm, -30);
-	sleep(1200);
+	setMotorSpeed(arm, 30);
+	sleep(1060);
+	setMotorSpeed(arm, -70);
+	sleep(550);
 	setMotorSpeed(arm, 0);
 }
 
 void dropBlock(){ // Drops a block
 	setMotorSpeed(grab, 20);
-	sleep(300);
+	sleep(350);
 	setMotorSpeed(grab, 70);
 	sleep(900);
 	setMotorSpeed(grab, -80);
-	sleep(1200);
+	sleep(1000);
 	setMotorSpeed(grab, 0);
 	resetMotorEncoder(grab);
 }

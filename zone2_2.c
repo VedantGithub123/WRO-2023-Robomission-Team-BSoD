@@ -10,8 +10,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 		if (getColorHT()==blocks[0]){ // Checks if the block is the same as the first position
 
 			if (blocks[0]==1){
-				sleep(10);
+				sleep(30);
 			}
+  		writeDebugStream("%d", blocks[0]);
 
 			blocks[0] = -1;
 
@@ -20,20 +21,15 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 			pickBlock();
 
-			clearTimer(T4);
-			while (getColorHT()>0){ // Moves until there is no block
-				setMotorSpeed(left, -1*min((time1(T4)*0.1), 15));
-				setMotorSpeed(right, min((time1(T4)*0.1), 15));
-			}
-
 			sleep(2);
 
 		}else if (getColorHT()==blocks[1]){ // Checks if the block is the same as the second position
 
-			if (blocks[0]==1){
-				sleep(10);
+			if (blocks[1]==1){
+				sleep(30);
 			}
 
+  		writeDebugStream("%d", blocks[1]);
 			blocks[1] = -1;
 
 			setMotorSpeed(left, 0);
@@ -41,11 +37,6 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 			pickBlock();
 
-			clearTimer(T4);
-			while (getColorHT()>0){ // Moves until there is no block
-				setMotorSpeed(left, -1*min((time1(T4)*0.1), 15));
-				setMotorSpeed(right, min((time1(T4)*0.1), 15));
-			}
 			sleep(1);
 
 		}
@@ -56,7 +47,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	clearTimer(T4);
 	while (getMotorEncoder(right)<850){ // Acceleration
-		setMotorSpeed(left, -1*min((time1(T4)*0.5)+5, 70));
+		setMotorSpeed(left, -1*min((time1(T4)*0.4)+5, 70));
 		setMotorSpeed(right, min((time1(T4)*0.5)+5, 70));
 	}
 
@@ -96,7 +87,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	movePID(100,-1,0,0,0.15,-1070,50,-0.5,0,0,0.06,00);
 
-	movePID(100,-1,0,0,0.15,-450,100,-1,0,0,0.15,410);
+	movePID(100,-1,0,0,0.15,-410,100,-1,0,0,0.15,410);
 
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
@@ -107,7 +98,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3, 0.35, 0, 0, 1200);
 
-	movePID(50,-0.3,0,0,0.04,-694,50,-0.3,0,0,0.04,694);
+	movePID(50,-0.3,0,0,0.04,-700,50,-0.3,0,0,0.04,700);
 
 	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
 
@@ -126,23 +117,36 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-140,20,-0.5,0,0,0.06,140);
+	movePID(20,-0.5,0,0,0.06,-134,20,-0.5,0,0,0.06,134);
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-202,20,-0.5,0,0,0.06,202);
+	movePID(20,-0.5,0,0,0.06,-205,20,-0.5,0,0,0.06,205);
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-85,20,-0.5,0,0,0.06,85);
+	movePID(20,-0.5,0,0,0.06,-88,20,-0.5,0,0,0.06,88);
 
-	dropBlock();
+	setMotorSpeed(grab, 20);
+	sleep(350);
+	setMotorSpeed(grab, 70);
+	sleep(900);
+	setMotorSpeed(grab, -20);
+	sleep(100);
+	setMotorSpeed(grab, 0);
+
+	movePID(20,-1,0,0,1,40,20,-1,0,0,1,-40);
+
+	setMotorSpeed(grab, -80);
+	sleep(1200);
+	setMotorSpeed(grab, 0);
+	resetMotorEncoder(grab);
 
 
 	// Get into position for line squaring
 
 	clearTimer(T4);
-	while (time1(T4)<1000){
+	while (time1(T4)<1200){
 		setMotorSpeed(left, min((time1(T4)*0.2), 70));
 		setMotorSpeed(right, -1*min((time1(T4)*0.3), 70));
 	}
@@ -152,21 +156,18 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(30,-0.5,0,0,0.06,-164,30,-0.5,0,0,0.06,164);
+	movePID(50,-0.5,0,0,0.16,-161,50,-0.5,0,0,0.16,161);
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.15,530);
+	movePID(15,-0.5,0,0,0.015,0,50,-0.7,0,0,0.25,530);
 
-	setMotorSpeed(left, -20);
-	setMotorSpeed(right, 20);
+	setMotorSpeed(left, -40);
+	setMotorSpeed(right, 40);
 
-	waitUntil(getColorReflected(CS2)>50);
-
-	waitUntil(getColorReflected(CS2)<30);
+	waitUntil(getColorReflected(CS2)>midpoint2+15);
 
 
-	// Get into posiiton for sensing
-
+	// Gets into position for sensing
 	lsPID(2, midpoint2-3, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
-	movePID(30,-0.3,0,0,0.06,200,30,-0.3,0,0,0.06,-200);
+	movePID(40,-0.5,0,0,0.06,230,40,-0.5,0,0,0.06,-230);
 }

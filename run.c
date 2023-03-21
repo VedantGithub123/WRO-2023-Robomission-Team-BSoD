@@ -11,7 +11,7 @@
 tHTCS2 HCS1; // Creates a hitechnic sensor object
 int blocks[2] = {1, 2}; // Creates the default block options
 int midpoint1 = 35; // Globally defines the midpoint for the color sensor in port 1
-int midpoint2 = 50; // Globally defines the midpoint for the color sensor in port 2
+int midpoint2 = 45; // Globally defines the midpoint for the color sensor in port 2
 int midpoint3 = 40; // Globally defines the midpoint for the color sensor in port 3
 
 // SLOW CODE:
