@@ -47,7 +47,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	clearTimer(T4);
 	while (getMotorEncoder(right)<850){ // Acceleration
-		setMotorSpeed(left, -1*min((time1(T4)*0.4)+5, 70));
+		setMotorSpeed(left, -1*min((time1(T4)*0.5)+5, 70));
 		setMotorSpeed(right, min((time1(T4)*0.5)+5, 70));
 	}
 
@@ -96,9 +96,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
 
-	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3, 0.35, 0, 0, 1200);
+	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3+2, 0.35, 0, 0, 1200);
 
-	movePID(50,-0.3,0,0,0.04,-700,50,-0.3,0,0,0.04,700);
+	movePID(50,-0.3,0,0,0.04,-705,50,-0.3,0,0,0.04,705);
 
 	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
 
@@ -117,7 +117,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-134,20,-0.5,0,0,0.06,134);
+	movePID(20,-0.5,0,0,0.06,-145,20,-0.5,0,0,0.06,145);
 
 	dropBlock();
 
@@ -130,15 +130,15 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(grab, 20);
 	sleep(350);
 	setMotorSpeed(grab, 70);
-	sleep(900);
+	sleep(800);
 	setMotorSpeed(grab, -20);
-	sleep(100);
+	sleep(300);
 	setMotorSpeed(grab, 0);
 
-	movePID(20,-1,0,0,1,40,20,-1,0,0,1,-40);
+	movePID(20,-1,0,0,1,30,20,-1,0,0,1,-30);
 
-	setMotorSpeed(grab, -80);
-	sleep(1200);
+	setMotorSpeed(grab, -100);
+	sleep(900);
 	setMotorSpeed(grab, 0);
 	resetMotorEncoder(grab);
 
@@ -156,9 +156,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(50,-0.5,0,0,0.16,-161,50,-0.5,0,0,0.16,161);
+	movePID(50,-0.5,0,0,0.16,-165,50,-0.5,0,0,0.16,165);
 
-	movePID(15,-0.5,0,0,0.015,0,50,-0.7,0,0,0.25,530);
+	movePID(15,-0.5,0,0,0.015,0,50,-0.7,0,0,0.25,543);
 
 	setMotorSpeed(left, -40);
 	setMotorSpeed(right, 40);
@@ -169,5 +169,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	// Gets into position for sensing
 	lsPID(2, midpoint2-3, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
-	movePID(40,-0.5,0,0,0.06,230,40,-0.5,0,0,0.06,-230);
+	movePID(40,-0.5,0,0,0.06,240,40,-0.5,0,0,0.06,-240);
+
+	sleep(20);
 }

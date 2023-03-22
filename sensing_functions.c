@@ -56,7 +56,7 @@ int getColorHTMarker(){ // 0 is no color, 1 is blue, 2 is green
 int getColorHT(){ // 0 is no color, 1 is blue, 2 is green
 	if (htColor(1)==2||htColor(1)==3){
 		return 1;
-		}else if (htGreen(1)>7){
+		}else if (htGreen(1)>9){
 		return 2;
 		}else{
 		return 0;
