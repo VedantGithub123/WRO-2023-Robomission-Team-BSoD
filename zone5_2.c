@@ -65,7 +65,7 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 	// Turn until the sensor sees white and then a bit more
 
-	setMotorSpeed(right, 30);
+	setMotorSpeed(right, 20);
 	sleep(500);
 
 	waitUntil(getColorReflected(CS3)<midpoint3-15);

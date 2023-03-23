@@ -35,7 +35,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	// Get into posiiton for dropping the blocks
 
-	movePID(70,-0.5,0,0,0.25,287,70,-0.5,0,0,0.25,287);
+	movePID(70,-0.5,0,0,0.25,289,70,-0.5,0,0,0.25,289);
 
 	clearTimer(T4);
 
@@ -49,7 +49,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(50,-0.5,0,0,0.16,-470,50,-0.5,0,0,0.16,470);
+	movePID(50,-0.5,0,0,0.16,-460,50,-0.5,0,0,0.16,460);
 
 	movePID(60,-0.5,0,0,0.16,-550,15,-0.5,0,0,0.5,0);
 

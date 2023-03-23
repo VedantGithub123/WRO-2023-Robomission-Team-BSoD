@@ -80,12 +80,11 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	pickBlock();
 
 
-	startTask(releaseBlock); // Do task in parallel to make sure the block falls properly
-
-
 	// Get to position for dropping blocks
 
 	movePID(100,-1,0,0,0.15,-1070,50,-0.5,0,0,0.06,00);
+
+	startTask(releaseBlock); // Do task in parallel to make sure the block falls properly
 
 	movePID(100,-1,0,0,0.15,-410,100,-1,0,0,0.15,410);
 
@@ -96,11 +95,11 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
 
-	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3+2, 0.35, 0, 0, 1200);
+	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3+5, 0.35, 0, 0, 1200);
 
-	movePID(50,-0.3,0,0,0.04,-705,50,-0.3,0,0,0.04,705);
+	movePID(50,-0.3,0,0,0.04,-720,50,-0.3,0,0,0.04,720);
 
-	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
+	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1630);
 
 	clearTimer(T4);
 	while (time1(T4)<1500){
@@ -117,7 +116,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-145,20,-0.5,0,0,0.06,145);
+	movePID(20,-0.5,0,0,0.06,-140,20,-0.5,0,0,0.06,140);
 
 	dropBlock();
 
@@ -132,7 +131,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(grab, 70);
 	sleep(800);
 	setMotorSpeed(grab, -20);
-	sleep(300);
+	sleep(200);
 	setMotorSpeed(grab, 0);
 
 	movePID(20,-1,0,0,1,30,20,-1,0,0,1,-30);
@@ -156,7 +155,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(50,-0.5,0,0,0.16,-165,50,-0.5,0,0,0.16,165);
+	movePID(50,-0.5,0,0,0.16,-155,50,-0.5,0,0,0.16,155);
 
 	movePID(15,-0.5,0,0,0.015,0,50,-0.7,0,0,0.25,543);
 
@@ -167,7 +166,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 
 	// Gets into position for sensing
-	lsPID(2, midpoint2-3, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
+	lsPID(2, midpoint2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
 	movePID(40,-0.5,0,0,0.06,240,40,-0.5,0,0,0.06,-240);
 
