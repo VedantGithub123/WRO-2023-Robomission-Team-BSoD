@@ -72,7 +72,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	setMotorSpeed(left, -10);
 	setMotorSpeed(right, 10);
 
-	waitUntil(getMotorEncoder(right)>35);
+	waitUntil(getMotorEncoder(right)>30);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);

@@ -99,7 +99,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	movePID(50,-0.3,0,0,0.04,-720,50,-0.3,0,0,0.04,720);
 
-	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1630);
+	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
 
 	clearTimer(T4);
 	while (time1(T4)<1500){
@@ -120,22 +120,22 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-205,20,-0.5,0,0,0.06,205);
+	movePID(20,-0.5,0,0,0.06,-200,20,-0.5,0,0,0.06,200);
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-88,20,-0.5,0,0,0.06,88);
+	movePID(20,-0.5,0,0,0.06,-86,20,-0.5,0,0,0.06,86);
 
 	setMotorSpeed(grab, 20);
 	sleep(350);
 	setMotorSpeed(grab, 70);
 	sleep(800);
-	setMotorSpeed(grab, -20);
+	setMotorSpeed(grab, -10);
 	sleep(200);
 	setMotorSpeed(grab, 0);
 
 	movePID(20,-1,0,0,1,30,20,-1,0,0,1,-30);
-
+	sleep(200)
 	setMotorSpeed(grab, -100);
 	sleep(900);
 	setMotorSpeed(grab, 0);
