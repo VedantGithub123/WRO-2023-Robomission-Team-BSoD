@@ -35,7 +35,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	// Get into posiiton for dropping the blocks
 
-	movePID(70,-0.5,0,0,0.25,289,70,-0.5,0,0,0.25,289);
+	movePID(70,-0.5,0,0,0.25,295,70,-0.5,0,0,0.25,295);
 
 	clearTimer(T4);
 
@@ -72,7 +72,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	setMotorSpeed(left, -10);
 	setMotorSpeed(right, 10);
 
-	waitUntil(getMotorEncoder(right)>30);
+	waitUntil(getMotorEncoder(right)>40);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
@@ -81,7 +81,22 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	dropBlock();
 
-	movePID(20,-0.5,0,0,0.06,-94,20,-0.5,0,0,0.06,94);
+	//setMotorSpeed(grab, 20);
+	//sleep(350);
+	//setMotorSpeed(grab, 70);
+	//sleep(800);
+	//setMotorSpeed(grab, -10);
+	//sleep(200);
+	//setMotorSpeed(grab, 0);
+
+	//movePID(20,-1,0,0,1,-30,20,-1,0,0,1,30);
+	//sleep(200)
+	//setMotorSpeed(grab, -100);
+	//sleep(900);
+	//setMotorSpeed(grab, 0);
+	//resetMotorEncoder(grab);
+
+	movePID(20,-0.5,0,0,0.06,-92,20,-0.5,0,0,0.06,92);
 
 	dropBlock();
 }

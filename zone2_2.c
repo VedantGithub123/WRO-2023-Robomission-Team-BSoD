@@ -60,7 +60,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Get into position for picking the block
 
-	waitUntil(htColor(1)>10);
+	waitUntil(getColorReflected(CS3)>midpoint2+15);
 
 	waitUntil(getColorReflected(CS2)<midpoint2-15);
 
@@ -86,7 +86,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	startTask(releaseBlock); // Do task in parallel to make sure the block falls properly
 
-	movePID(100,-1,0,0,0.15,-410,100,-1,0,0,0.15,410);
+	movePID(100,-1,0,0,0.15,-390,100,-1,0,0,0.15,390);
 
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
@@ -95,7 +95,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
 
-	lsPID(2, midpoint2-3, -0.35, 0, 0, 3, midpoint3+5, 0.35, 0, 0, 1200);
+	lsPID(2, midpoint2-1, -0.35, 0, 0, 3, midpoint3+5, 0.35, 0, 0, 1200);
 
 	movePID(50,-0.3,0,0,0.04,-720,50,-0.3,0,0,0.04,720);
 
@@ -116,7 +116,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-140,20,-0.5,0,0,0.06,140);
+	movePID(20,-0.5,0,0,0.06,-137,20,-0.5,0,0,0.06,137);
 
 	dropBlock();
 
@@ -131,10 +131,10 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(grab, 70);
 	sleep(800);
 	setMotorSpeed(grab, -10);
-	sleep(200);
+	sleep(120);
 	setMotorSpeed(grab, 0);
 
-	movePID(20,-1,0,0,1,30,20,-1,0,0,1,-30);
+	movePID(20,-1,0,0,1,40,20,-1,0,0,1,-40);
 	sleep(200)
 	setMotorSpeed(grab, -100);
 	sleep(900);
@@ -155,18 +155,19 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(50,-0.5,0,0,0.16,-155,50,-0.5,0,0,0.16,155);
+	movePID(30,-0.5,0,0,0.16,-165,30,-0.5,0,0,0.16,165);
 
-	movePID(15,-0.5,0,0,0.015,0,50,-0.7,0,0,0.25,543);
+	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.25,543);
 
-	setMotorSpeed(left, -40);
-	setMotorSpeed(right, 40);
+	setMotorSpeed(left, -20);
+	setMotorSpeed(right, 20);
 
 	waitUntil(getColorReflected(CS2)>midpoint2+15);
+	waitUntil(getColorReflected(CS2)<midpoint2);
 
 
 	// Gets into position for sensing
-	lsPID(2, midpoint2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
+	lsPID(2, midpoint2+1, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
 	movePID(40,-0.5,0,0,0.06,240,40,-0.5,0,0,0.06,-240);
 

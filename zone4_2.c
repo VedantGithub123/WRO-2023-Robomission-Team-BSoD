@@ -30,9 +30,22 @@ void zone4(){ // This zone grabs the ships
 
 	// Get into position to grab the big ship
 
-	movePID(60,-0.2,0,0,0.05,580,30,-0.9,0,0,0.06,0);
+	clearTimer(T4);
+	while (time1(T4)<1200){
+		setMotorSpeed(left, min((time1(T4)*2), 100));
+		setMotorSpeed(right, -1*min((time1(T4)*2), 100));
+	}
 
-	movePID(40,-0.5,0,0,0.06,780,40,-0.5,0,0,0.06,-780);
+	setMotorSpeed(left, 0);
+	setMotorSpeed(right, 0);
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
+
+	movePID(40,-0.5,0,0,0.06,-565,40,-0.5,0,0,0.06,565);
+
+	movePID(60,-0.2,0,0,0.05,562,30,-0.9,0,0,0.06,0);
+
+	movePID(40,-0.5,0,0,0.06,880,40,-0.5,0,0,0.06,-880);
 
 
 	// Activate the mechanical AND gate

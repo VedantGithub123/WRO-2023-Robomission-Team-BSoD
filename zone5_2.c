@@ -105,7 +105,7 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 	sleep(500);
 
 	clearTimer(T4);
-	while (time1(T4)<1000){
+	while (time1(T4)<1500){
 		setMotorSpeed(left, -1*min((time1(T4)*2), 100));
 		setMotorSpeed(right, min((time1(T4)*2), 100));
 	}
