@@ -18,7 +18,7 @@ void zone4(){ // This zone grabs the ships
 
 	setMotorSpeed(grab, 20);
 
-	movePID(70,-0.4,0,0,0.06,715,70,-0.4,0,0,0.06,-715);
+	movePID(100,-0.6,0,0,0.16,715,100,-0.6,0,0,0.16,-715);
 
 	setMotorSpeed(grab, -100);
 
@@ -41,11 +41,11 @@ void zone4(){ // This zone grabs the ships
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(40,-0.5,0,0,0.06,-565,40,-0.5,0,0,0.06,565);
+	movePID(60,-0.5,0,0,0.16,-565,60,-0.5,0,0,0.16,565);
 
-	movePID(60,-0.2,0,0,0.05,562,30,-0.9,0,0,0.06,0);
+	movePID(60,-0.4,0,0,0.1,562,30,-0.9,0,0,0.06,0);
 
-	movePID(40,-0.5,0,0,0.06,880,40,-0.5,0,0,0.06,-880);
+	movePID(40,-0.5,0,0,0.1,880,40,-0.5,0,0,0.1,-880);
 
 
 	// Activate the mechanical AND gate

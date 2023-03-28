@@ -21,7 +21,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 
 	// Gets into position for line squaring
-	movePID(30,-0.5,0,0,0.16,-165,30,-0.5,0,0,0.16,165);
+	movePID(30,-0.5,0,0,0.16,-168,30,-0.5,0,0,0.16,168);
 
 	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.25,543);
 
@@ -33,7 +33,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 
 	// Gets into position for sensing
-	lsPID(2, midpoint2+1, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
+	lsPID(2, midpoint2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
 	movePID(30,-0.5,0,0,0.06,240,30,-0.5,0,0,0.06,-240);
 
