@@ -10,7 +10,9 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 		if (getColorHT()>0){ // Checks if there is a block
 
 			if (blocks[0]==1){
-				sleep(30);
+				sleep(80);
+			}else{
+				sleep(20);
 			}
 
 			setMotorSpeed(left, 0);
@@ -81,20 +83,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	dropBlock();
 
-	//setMotorSpeed(grab, 20);
-	//sleep(350);
-	//setMotorSpeed(grab, 70);
-	//sleep(800);
-	//setMotorSpeed(grab, -10);
-	//sleep(200);
-	//setMotorSpeed(grab, 0);
-
-	//movePID(20,-1,0,0,1,-30,20,-1,0,0,1,30);
-	//sleep(200)
-	//setMotorSpeed(grab, -100);
-	//sleep(900);
-	//setMotorSpeed(grab, 0);
-	//resetMotorEncoder(grab);
+	setMotorSpeed(grab, -10);
 
 	movePID(20,-0.5,0,0,0.06,-92,20,-0.5,0,0,0.06,92);
 

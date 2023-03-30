@@ -56,8 +56,8 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 	setMotorSpeed(left, 30);
 	setMotorSpeed(right, -30);
-	waitUntil(getColorReflected(CS3)<midpoint3+15);
-	waitUntil(getColorReflected(CS3)>midpoint3);
+	waitUntil(getColorReflected(CS3)<midpoint3+15 && getColorReflected(CS2)<midpoint2+15);
+	waitUntil(getColorReflected(CS3)>midpoint3 && getColorReflected(CS2)>midpoint2);
 	//movePID(60,-0.4,0,0,0.16,130,60,-0.4,0,0,0.16,-130);
 
 	lsPID(2, midpoint2, 0.33, 0, 0, 3, midpoint3, -0.33, 0, 0, 800);
@@ -105,7 +105,7 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 	sleep(500);
 
 	clearTimer(T4);
-	while (time1(T4)<1200){
+	while (time1(T4)<900){
 		setMotorSpeed(left, -1*min((time1(T4)*2), 100));
 		setMotorSpeed(right, min((time1(T4)*2), 100));
 	}

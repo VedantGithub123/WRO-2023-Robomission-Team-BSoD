@@ -1,7 +1,7 @@
 #pragma config(Sensor, S1,     CS1,            sensorEV3_Color)
 #pragma config(Sensor, S2,     CS2,            sensorEV3_Color)
 #pragma config(Sensor, S3,     CS3,            sensorEV3_Color)
-#pragma config(Motor,  motorA,          grab,          tmotorEV3_Medium, openLoop, encoder)
+#pragma config(Motor,  motorA,          grab,          tmotorEV3_Medium, PIDControl, encoder)
 #pragma config(Motor,  motorB,          left,          tmotorEV3_Medium, PIDControl, driveLeft, encoder)
 #pragma config(Motor,  motorC,          right,         tmotorEV3_Medium, PIDControl, driveRight, encoder)
 #pragma config(Motor,  motorD,          arm,           tmotorEV3_Medium, PIDControl)

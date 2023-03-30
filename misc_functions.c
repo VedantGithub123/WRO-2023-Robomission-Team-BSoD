@@ -18,8 +18,8 @@ void dropBlock(){ // Drops a block
 	sleep(350);
 	setMotorSpeed(grab, 60);
 	sleep(900);
-	setMotorSpeed(grab, -90);
-	sleep(700);
+	setMotorSpeed(grab, -100);
+	sleep(400);
 	setMotorSpeed(grab, 0);
 	resetMotorEncoder(grab);
 }
