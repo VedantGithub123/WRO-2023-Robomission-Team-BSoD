@@ -27,17 +27,17 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.25,543);
 
-	setMotorSpeed(left, -20);
-	setMotorSpeed(right, 20);
+	//setMotorSpeed(left, -20);
+	//setMotorSpeed(right, 20);
 
-	waitUntil(getColorReflected(CS2)>midpoint2+15);
-	waitUntil(getColorReflected(CS2)<midpoint2);
+	//waitUntil(getColorReflected(CS2)>midpoint2+15);
+	//waitUntil(getColorReflected(CS2)<midpoint2);
 
 
-	// Gets into position for sensing
-	lsPID(2, midpoint2-2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
+	//// Gets into position for sensing
+	//lsPID(2, midpoint2-2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
 
-	movePID(40,-0.3,0,0,0.06,240,40,-0.3,0,0,0.06,-240);
+	//movePID(40,-0.3,0,0,0.06,240,40,-0.3,0,0,0.06,-240);
 
 	sleep(20);
 }
