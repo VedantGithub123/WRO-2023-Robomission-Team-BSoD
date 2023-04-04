@@ -7,7 +7,7 @@ void zone4(){ // This zone grabs the ships
 
 	movePID(50,-0.5,0,0,0.12,540,50,-0.5,0,0,0.12,540);
 
-	movePID(30,-0.5,0,0,0.06,-200,30,-0.5,0,0,0.06,200);
+	movePID(30,-0.5,0,0,0.06,-230,30,-0.5,0,0,0.06,230);
 
 
 	// Grabs and brings the small ship to the line

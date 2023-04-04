@@ -10,9 +10,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 		if (getColorHT()==blocks[0]){ // Checks if the block is the same as the first position
 
 			if (blocks[0]==1){
-				sleep(80);
+				sleep(50);
 			}else{
-				sleep(20);
+				sleep(0);
 			}
 
 			blocks[0] = -1;
@@ -27,9 +27,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 		}else if (getColorHT()==blocks[1]){ // Checks if the block is the same as the second position
 
 			if (blocks[1]==1){
-				sleep(80);
+				sleep(50);
 			}else{
-				sleep(20);
+				sleep(0);
 			}
 
 			blocks[1] = -1;
@@ -84,30 +84,44 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Get to position for dropping blocks
 
-	movePID(100,-1,0,0,0.15,-1070,50,-0.5,0,0,0.06,00);
-
 	startTask(releaseBlock); // Do task in parallel to make sure the block falls properly
 
-	movePID(100,-1,0,0,0.15,-390,100,-1,0,0,0.15,390);
+	movePID(100,-0.3,0,0,0.06,1250,100,-0.3,0,0,0.06,-1250);
 
-	setMotorSpeed(left, -20);
-	setMotorSpeed(right, 20);
+	//sleep(100);
 
-	waitUntil(getColorReflected(CS2)>midpoint2+15);
-
-	waitUntil(getColorReflected(CS2)<midpoint2-25);
-
-	lsPID(2, midpoint2-5, -0.35, 0, 0, 3, midpoint3+5, 0.35, 0, 0, 1200);
-
-	movePID(50,-0.3,0,0,0.04,-707,50,-0.3,0,0,0.04,707);
-
-	movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
+	movePID(70,-0.3,0,0,0.06,0,60,-0.5,0,0,0.08,-538);
 
 	clearTimer(T4);
-	while (time1(T4)<1500){
+	while (time1(T4)<700){
 		setMotorSpeed(left, min((time1(T4)*0.3), 60));
 		setMotorSpeed(right, -1*min((time1(T4)*0.3), 60));
 	}
+
+	//movePID(100,-1,0,0,0.15,-1070,50,-0.5,0,0,0.06,00);
+
+	//startTask(releaseBlock); // Do task in parallel to make sure the block falls properly
+
+	//movePID(100,-1,0,0,0.15,-390,100,-1,0,0,0.15,390);
+
+	//setMotorSpeed(left, -20);
+	//setMotorSpeed(right, 20);
+
+	//waitUntil(getColorReflected(CS2)>midpoint2+15);
+
+	//waitUntil(getColorReflected(CS2)<midpoint2-25);
+
+	//lsPID(2, midpoint2-5, -0.35, 0, 0, 3, midpoint3+5, 0.35, 0, 0, 1200);
+
+	//movePID(50,-0.3,0,0,0.04,-707,50,-0.3,0,0,0.04,707);
+
+	//movePID(70,-0.3,0,0,0.06,0,60,-0.2,0,0,0.08,-1635);
+
+	//clearTimer(T4);
+	//while (time1(T4)<1500){
+	//	setMotorSpeed(left, min((time1(T4)*0.3), 60));
+	//	setMotorSpeed(right, -1*min((time1(T4)*0.3), 60));
+	//}
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
@@ -141,14 +155,14 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(grab, 0);
 
 	movePID(20,-1,0,0,1,40,20,-1,0,0,1,-40);
-	sleep(200)
+	sleep(200);
 	setMotorSpeed(grab, -100);
 	sleep(600);
 	setMotorSpeed(grab, 0);
 	resetMotorEncoder(grab);
 
 
-	// Get into position for line squaring
+	// Get into position for picking blocks
 
 	clearTimer(T4);
 	while (time1(T4)<1200){
@@ -161,21 +175,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(30,-0.5,0,0,0.16,-170,30,-0.5,0,0,0.16,170);
+	movePID(30,-0.5,0,0,0.16,-165,30,-0.5,0,0,0.16,165);
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.7,0,0,0.25,545);
-
-	//setMotorSpeed(left, -20);
-	//setMotorSpeed(right, 20);
-
-	//waitUntil(getColorReflected(CS2)>midpoint2+15);
-	//waitUntil(getColorReflected(CS2)<midpoint2);
-
-
-	//// Gets into position for sensing
-	//lsPID(2, midpoint2, -0.25, 0, 0, 3, midpoint3, 0.25, 0, 0, 1200);
-
-	//movePID(40,-0.3,0,0,0.06,240,40,-0.3,0,0,0.06,-240);
+	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.15,549);
 
 	sleep(20);
 }

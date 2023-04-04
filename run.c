@@ -14,15 +14,7 @@ int midpoint1 = 35; // Globally defines the midpoint for the color sensor in por
 int midpoint2 = 45; // Globally defines the midpoint for the color sensor in port 2
 int midpoint3 = 40; // Globally defines the midpoint for the color sensor in port 3
 
-// SLOW CODE:
-//#include "functions.c"
-//#include "zone1.c" // Pushes ship, senses blocks, goes to cargo area
-//#include "zone2.c" // Picks up and puts blocks on the big ship and goes back to the cargo area
-//#include "zone3.c" // Picks up and puts blocks on the small ship
-//#include "zone4.c" // Moves the small ship to the line and grabs the big ship
-//#include "zone5.c" // Brings ships to the open ocean area, puts red cargo on the crane, end in harbour area
-
-// FAST CODE:
+//CODE:
 #include "sensing_functions.c" // Contains all the functions for sensing
 #include "misc_functions.c" // Contains all the miscellaneous functions
 #include "movement_functions.c" // Contains all the movement functions
@@ -52,6 +44,10 @@ task main()
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
+	playSoundFile("French_Anthem");
+	drawBmpfile(0, 0, "ET.rgf");
+
+	sleep(1000000);
 
 	// Calls all zones
 	zone1();
@@ -73,6 +69,9 @@ task main()
 	}else{
 		playSound(soundUpwardTones);
 	}
+
+
+
   sleep(10000);
 
 }
