@@ -6,7 +6,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 	movePID(40,-1,0,0,0.9,30,40,-1,0,0,0.9,-30);
 
-	movePID(100,-0.5,0,0,2,1074,70,-0.5,0,0,0.06,0); // Turns to get into position
+	movePID(100,-0.5,0,0,2,1090,70,-0.5,0,0,0.06,0); // Turns to get into position
 
 
 	// Wall squares
@@ -21,9 +21,11 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
+	sleep(100);
+
 
 	// Gets into position for picking blocks
-	movePID(30,-0.5,0,0,0.16,-165,30,-0.5,0,0,0.16,165);
+	movePID(30,-0.5,0,0,0.16,-168,30,-0.5,0,0,0.16,168);
 
 	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.15,549);
 

@@ -6,8 +6,8 @@ int min(int num1, int num2){ // Finds minimum value of 2 integers
 }
 
 void pickBlock(){ // Picks up a block
-	setMotorSpeed(arm, 40);
-	sleep(1000);
+	setMotorSpeed(arm, 45);
+	sleep(800);
 	setMotorSpeed(arm, -100);
 	sleep(600);
 	setMotorSpeed(arm, 0);
@@ -17,7 +17,7 @@ void dropBlock(){ // Drops a block
 	setMotorSpeed(grab, 20);
 	sleep(350);
 	setMotorSpeed(grab, 60);
-	sleep(900);
+	sleep(600);
 	setMotorSpeed(grab, -100);
 	sleep(400);
 	setMotorSpeed(grab, 0);
@@ -74,10 +74,44 @@ task sense(){ // Sensing task
 }
 
 task releaseBlock(){ // Task to fully release the last block
-		setMotorSpeed(arm, 15);
-		sleep(700);
-		setMotorSpeed(arm, -15);
-		sleep(700);
-		setMotorSpeed(arm, 0);
-		stopTask(releaseBlock);
+	setMotorSpeed(arm, 40);
+	sleep(600);
+	setMotorSpeed(arm, -100);
+	sleep(600);
+	setMotorSpeed(arm, 0);
+}
+
+task playMusic(){
+	drawBmpfile(0, 127, "ET.rgf");
+	sleep(6000);
+	playSoundFile("FNA1.rsf");
+	sleep(5000);
+	playSoundFile("FNA2.rsf");
+	sleep(5000);
+	playSoundFile("FNA3.rsf");
+	sleep(5000);
+	playSoundFile("FNA4.rsf");
+	sleep(5000);
+	playSoundFile("FNA5.rsf");
+	sleep(5000);
+	playSoundFile("FNA6.rsf");
+	sleep(5000);
+	playSoundFile("FNA7.rsf");
+	sleep(5000);
+	playSoundFile("FNA8.rsf");
+	sleep(5000);
+	playSoundFile("FNA9.rsf");
+	sleep(5000);
+	playSoundFile("FNA10.rsf");
+	sleep(5000);
+	playSoundFile("FNA11.rsf");
+	sleep(5000);
+	playSoundFile("FNA12.rsf");
+	sleep(5000);
+	playSoundFile("FNA13.rsf");
+	sleep(5000);
+	playSoundFile("FNA14.rsf");
+	sleep(5000);
+	playSoundFile("FNA15.rsf");
+	sleep(5000);
 }

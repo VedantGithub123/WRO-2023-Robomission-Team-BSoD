@@ -44,12 +44,9 @@ task main()
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	playSoundFile("French_Anthem");
-	drawBmpfile(0, 0, "ET.rgf");
-
-	sleep(1000000);
 
 	// Calls all zones
+	//startTask(playMusic);
 	zone1();
 	zone2();
 	zone3();
@@ -70,8 +67,6 @@ task main()
 		playSound(soundUpwardTones);
 	}
 
-
-
-  sleep(10000);
+	sleep(10000);
 
 }
