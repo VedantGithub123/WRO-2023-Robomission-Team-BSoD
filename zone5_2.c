@@ -79,7 +79,7 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 	setMotorSpeed(right, 0);
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
-	movePID(60,-0.4,0,0,0.06,-190,60,-0.4,0,0,0.06,190);
+	movePID(60,-0.4,0,0,0.06,90,60,-0.4,0,0,0.06,-90);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
@@ -88,14 +88,14 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 
 	setMotorSpeed(left, 20);
-	waitUntil(getMotorEncoder(left)>140);
+	waitUntil(getMotorEncoder(left)>120);
 	setMotorSpeed(left, 0);
 
 	setMotorSpeed(right, -20);
-	waitUntil(getMotorEncoder(right)<-170);
+	waitUntil(getMotorEncoder(right)<-120);
 	setMotorSpeed(right, 0);
 
-	lfPID(1, 10, midpoint1, -0.25, 0, 0, 5000, 1);
+	lfPID(1, 10, midpoint1, -0.25, 0, 0, 3700, 1);
 
 
 	// Move to the ending position

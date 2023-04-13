@@ -11,7 +11,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 	// Wall squares
 	clearTimer(T4);
-	while (time1(T4)<1500){
+	while (time1(T4)<1700){
 		setMotorSpeed(left, min((time1(T4)*2), 100));
 		setMotorSpeed(right, -1*min((time1(T4)*2), 100));
 	}
@@ -21,13 +21,13 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	sleep(100);
+	sleep(200);
 
 
 	// Gets into position for picking blocks
-	movePID(30,-0.5,0,0,0.16,-168,30,-0.5,0,0,0.16,168);
+	movePID(30,-0.5,0,0,0.1,-178,30,-0.5,0,0,0.1,178);
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.15,549);
+	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.1,549);
 
 	sleep(20);
 }

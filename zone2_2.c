@@ -1,5 +1,7 @@
 void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes back to the cargo area
 
+	setMotorSpeed(arm, -5);
+
 	// Grabs blocks while moving forward
 	clearTimer(T4);
 	while (getMotorEncoder(right)<600){ // Stops at 600 degrees
@@ -126,10 +128,10 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(grab, 70);
 	sleep(800);
 	setMotorSpeed(grab, -10);
-	sleep(120);
+	sleep(170);
 	setMotorSpeed(grab, 0);
 
-	movePID(20,-1,0,0,1,40,20,-1,0,0,1,-40);
+	movePID(20,-1,0,0,1,60,20,-1,0,0,1,-60);
 	sleep(200);
 	setMotorSpeed(grab, -100);
 	sleep(600);
@@ -140,7 +142,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	// Get into position for picking blocks
 
 	clearTimer(T4);
-	while (time1(T4)<1200){
+	while (time1(T4)<1400){
 		setMotorSpeed(left, min((time1(T4)*0.2), 70));
 		setMotorSpeed(right, -1*min((time1(T4)*0.3), 70));
 	}
@@ -150,11 +152,11 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	sleep(100);
+	sleep(200);
 
-	movePID(30,-0.5,0,0,0.16,-168,30,-0.5,0,0,0.16,168);
+	movePID(30,-0.5,0,0,0.1,-178,30,-0.5,0,0,0.1,178);
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.15,549);
+	movePID(15,-0.5,0,0,0.01,0,30,-0.5,0,0,0.1,549);
 
 	sleep(20);
 }
