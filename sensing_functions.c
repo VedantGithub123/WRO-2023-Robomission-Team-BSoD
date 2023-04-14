@@ -21,6 +21,16 @@ int htColor(int portNumber){ // Function to get hitechnic color sensor color
 	}
 }
 
+int htHue(int portNumber){ // Function to get hitechnic color sensor color
+	readSensor(&HCS1);
+	switch(portNumber){
+	case 1:
+		return HCS1.hue;
+	default:
+		return 0;
+	}
+}
+
 int htBlue(int portNumber){ // Function to get hitechnic color sensor blue reflection
 	readSensor(&HCS1);
 	switch(portNumber){
@@ -54,9 +64,9 @@ int getColorHTMarker(){ // 0 is no color, 1 is blue, 2 is green
 
 // Function to get the color of a block
 int getColorHT(){ // 0 is no color, 1 is blue, 2 is green
-		if (htBlue(1)>17){
+		if (htBlue(1)>17 && htHue(1)>25){
 		return 1;
-		}else if (htGreen(1)>9 && htBlue(1)<17){
+		}else if (htGreen(1)>9 && htBlue(1)<17 && htHue(1)>25){
 		return 2;
 		}else{
 		return 0;

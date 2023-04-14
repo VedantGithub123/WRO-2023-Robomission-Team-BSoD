@@ -156,7 +156,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	movePID(30,-0.5,0,0,0.1,-178,30,-0.5,0,0,0.1,178);
 
-	movePID(15,-0.5,0,0,0.01,0,30,-0.5,0,0,0.1,549);
+	movePID(15,-0.5,0,0,0.01,0,30,-0.5,0,0,0.1,548);
 
 	sleep(20);
 }

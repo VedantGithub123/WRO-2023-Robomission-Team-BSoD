@@ -57,13 +57,13 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	movePID(50,-0.5,0,0,0.09,520,50,-0.5,0,0,0.09,-520);
 
-	setMotorSpeed(left, 30);
-	setMotorSpeed(right, -30);
+	setMotorSpeed(left, 20);
+	setMotorSpeed(right, -20);
 
 	waitUntil(getColorReflected(CS2)>midpoint2+15);
 
-	setMotorSpeed(left, 15);
-	setMotorSpeed(right, -15);
+	setMotorSpeed(left, 10);
+	setMotorSpeed(right, -10);
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
 
@@ -80,7 +80,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	setMotorSpeed(left, -10);
 	setMotorSpeed(right, 10);
 
-	waitUntil(getMotorEncoder(right)>13);
+	waitUntil(getMotorEncoder(right)>8);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
