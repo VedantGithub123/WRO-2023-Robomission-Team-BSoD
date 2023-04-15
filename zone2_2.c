@@ -109,13 +109,13 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-137,20,-0.5,0,0,0.06,137);
+	movePID(20,-0.5,0,0,0.06,-142,20,-0.5,0,0,0.06,142);
 
 	dropBlock();
 
 	setMotorSpeed(grab, -10);
 
-	movePID(20,-0.5,0,0,0.06,-205,20,-0.5,0,0,0.06,205);
+	movePID(20,-0.5,0,0,0.06,-209,20,-0.5,0,0,0.06,209);
 
 	dropBlock();
 

@@ -51,9 +51,9 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(50,-0.5,0,0,0.09,-455,50,-0.5,0,0,0.09,455);
+	movePID(50,-0.5,0,0,0.09,-460,50,-0.5,0,0,0.09,460);
 
-	movePID(40,-0.4,0,0,0.09,-554,15,-0.5,0,0,0.5,0);
+	movePID(40,-0.4,0,0,0.09,-557,15,-0.5,0,0,0.5,0);
 
 	movePID(50,-0.5,0,0,0.09,520,50,-0.5,0,0,0.09,-520);
 
@@ -80,7 +80,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	setMotorSpeed(left, -10);
 	setMotorSpeed(right, 10);
 
-	waitUntil(getMotorEncoder(right)>8);
+	waitUntil(getMotorEncoder(right)>5);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);

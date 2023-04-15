@@ -41,7 +41,7 @@ void zone4(){ // This zone grabs the ships
 	resetMotorEncoder(left);
 	resetMotorEncoder(right);
 
-	movePID(60,-0.5,0,0,0.16,-560,60,-0.5,0,0,0.16,560);
+	movePID(60,-0.5,0,0,0.16,-570,60,-0.5,0,0,0.16,570);
 
 	movePID(60,-0.4,0,0,0.1,562,30,-0.9,0,0,0.06,0);
 
