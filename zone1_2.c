@@ -26,9 +26,9 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 
 	// Gets into position for picking blocks
-	movePID(30,-0.5,0,0,0.1,-182,30,-0.5,0,0,0.1,182);
+	movePID(30,-0.5,0,0,0.1,-180,30,-0.5,0,0,0.1,180);
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.1,547);
+	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.1,549);
 
 	sleep(20);
 }

@@ -10,9 +10,9 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 		if (getColorHT()>0){ // Checks if there is a block
 
 			if (blocks[0]==1){
-				sleep(60);
+				sleep(30);
 			}else{
-				sleep(40);
+				sleep(20);
 			}
 
 			setMotorSpeed(left, 0);

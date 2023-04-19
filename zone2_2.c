@@ -12,9 +12,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 		if (getColorHT()==blocks[0]){ // Checks if the block is the same as the first position
 
 			if (blocks[0]==1){
-				sleep(60);
+				sleep(30);
 			}else{
-				sleep(40);
+				sleep(20);
 			}
 
 			blocks[0] = -1;
@@ -29,9 +29,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 		}else if (getColorHT()==blocks[1]){ // Checks if the block is the same as the second position
 
 			if (blocks[1]==1){
-				sleep(60);
+				sleep(30);
 			}else{
-				sleep(40);
+				sleep(20);
 			}
 
 			blocks[1] = -1;
@@ -109,13 +109,13 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	// Drop blocks onto the big ship
 
-	movePID(20,-0.5,0,0,0.06,-142,20,-0.5,0,0,0.06,142);
+	movePID(20,-0.5,0,0,0.06,-144,20,-0.5,0,0,0.06,144);
 
 	dropBlock();
 
 	setMotorSpeed(grab, -10);
 
-	movePID(20,-0.5,0,0,0.06,-209,20,-0.5,0,0,0.06,209);
+	movePID(20,-0.5,0,0,0.06,-210,20,-0.5,0,0,0.06,210);
 
 	dropBlock();
 
@@ -154,9 +154,9 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 	sleep(200);
 
-	movePID(30,-0.5,0,0,0.1,-178,30,-0.5,0,0,0.1,178);
+	movePID(30,-0.5,0,0,0.1,-180,30,-0.5,0,0,0.1,180);
 
-	movePID(15,-0.5,0,0,0.01,0,30,-0.5,0,0,0.1,548);
+	movePID(15,-0.5,0,0,0.01,0,30,-0.5,0,0,0.1,550);
 
 	sleep(20);
 }
