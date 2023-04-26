@@ -17,8 +17,8 @@ void pickBlock(){ // Picks up a block
 void dropBlock(){ // Drops a block
 	setMotorSpeed(grab, 15);
 	sleep(400);
-	setMotorSpeed(grab, 60);
-	sleep(600);
+	setMotorSpeed(grab, 100);
+	sleep(500);
 	setMotorSpeed(grab, -100);
 	sleep(400);
 	setMotorSpeed(grab, 0);
@@ -28,7 +28,7 @@ void dropBlock(){ // Drops a block
 task sense(){ // Sensing task
 	int col = 0;
 	while (true){
-		col = getColorHTMarker();
+		col = getColorHT();
 		if (col>0){
 			blocks[0] = col;
 			break;
@@ -40,7 +40,7 @@ task sense(){ // Sensing task
 	col = 0;
 
 	while (true){
-		col = getColorHTMarker();
+		col = getColorHT();
 		if (col>0){
 			blocks[1] = col;
 			break;

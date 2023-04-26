@@ -2,7 +2,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	// Grab blocks while moving
 	clearTimer(T4);
-	while (getMotorEncoder(right)<850){ // Stops at 850 degrees
+	while (getMotorEncoder(right)<900){ // Stops at 850 degrees
 
 		setMotorSpeed(left, -1*min((time1(T4)*0.1), 15));
 		setMotorSpeed(right, min((time1(T4)*0.1), 15));
@@ -37,7 +37,7 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 
 	// Get into posiiton for dropping the blocks
 
-	movePID(40,-0.5,0,0,0.25,298,40,-0.5,0,0,0.25,298);
+	movePID(40,-0.5,0,0,0.25,286,40,-0.5,0,0,0.25,286);
 
 	clearTimer(T4);
 
@@ -66,8 +66,6 @@ void zone3(){ // This zone pick up the remaining cargo and drops it in the small
 	setMotorSpeed(right, -10);
 
 	waitUntil(getColorReflected(CS2)<midpoint2-25);
-
-	//lsPID(2, midpoint2-3, -0.3, 0, 0, 3, midpoint3+3, 0.4, 0, 0, 1200);
 
 
 	// Drops blocks onto the small ship

@@ -19,10 +19,12 @@ int midpoint3 = 40; // Globally defines the midpoint for the color sensor in por
 #include "misc_functions.c" // Contains all the miscellaneous functions
 #include "movement_functions.c" // Contains all the movement functions
 #include "zone1_2.c" // Pushes ship, senses blocks, goes to cargo area
-#include "zone2_2.c" // Picks up and puts blocks on the big ship and goes back to the cargo area
+//#include "zone2_2.c" // Picks up and puts blocks on the big ship and goes back to the cargo area
 #include "zone3_2.c" // Picks up and puts blocks on the small ship
 #include "zone4_2.c" // Moves the small ship to the line and grabs the big ship
 #include "zone5_2.c" // Brings ships to the open ocean area, puts red cargo on the crane, end in harbour area
+
+#include "zone2_2 - Copy.c"
 
 task main()
 {
@@ -47,9 +49,10 @@ task main()
 
 	// Calls all zones
 	//startTask(playMusic);
+
 	zone1();
 	zone2();
-	zone3();
+	//zone3();
 	zone4();
 	zone5();
 

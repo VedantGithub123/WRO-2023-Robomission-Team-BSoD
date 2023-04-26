@@ -43,11 +43,11 @@ void zone5(){ // This zone moves the ships and ends in the mooring area
 
 	// Align the robot so that it is straight
 
-	setMotorSpeed(left, -30);
-	setMotorSpeed(right, 30);
+	setMotorSpeed(left, -40);
+	setMotorSpeed(right, 40);
 
 	clearTimer(T4);
-	waitUntil(time1(T4)>500);
+	waitUntil(time1(T4)>300);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);

@@ -31,7 +31,7 @@ void movePID(float leftSpeed, float leftKP, float leftKI, float leftKD, float le
 		if (rightDegrees!=0&&rightSpeed!=0&&rSpeed!=0&&fabs(rSpeed)<5){
 			rSpeed = rSpeed/fabs(rSpeed)*5;
 		}
-		if (leftDegrees!=0&&rightSpeed!=0&&lSpeed!=0&&fabs(lSpeed)<5){
+		if (leftDegrees!=0&&leftSpeed!=0&&lSpeed!=0&&fabs(lSpeed)<5){
 			lSpeed = lSpeed/fabs(lSpeed)*5;
 		}
 
