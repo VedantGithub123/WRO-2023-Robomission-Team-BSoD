@@ -51,100 +51,167 @@ void movePID(float leftSpeed, float leftKP, float leftKI, float leftKD, float le
 
 // Function to line follow
 // States: 0: Degrees, 1: Seconds, 2: While Reflection > Target, 3: While Reflection < Target
+//void lfPID(int state, float speed, float midPoint, float kP, float kI, float kD, float target, int portNum){
+//	if (state == 1){
+//		clearTimer(T1);
+//		int oldTime = -1;
+//		int integral = 0;
+//		int oldRef = 0;
+//		int diff = 0;
+//		while (time1(T1)<target){
+//			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+
+//			if (fabs(getColourReflection(portNum)-midPoint)<2){
+//				integral+=fabs(getColourReflection(portNum))*kI;
+//				if (integral>1){
+//					integral = 1;
+//				}
+//			}
+//			diff+=integral;
+//			setMotorSpeed(left, speed+diff);
+//			setMotorSpeed(right, -speed+diff);
+//			oldTime = time1(T1);
+//			oldRef = getColourReflection(portNum);
+//			sleep(20);
+//		}
+//		}else if (state == 2){
+//		clearTimer(T1);
+//		int oldTime = -1;
+//		int integral = 0;
+//		int oldRef = 0;
+//		int diff = 0;
+//		int tempPort = 5-portNum;
+//		while (getColourReflection(tempPort)>target){
+//			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+
+//			if (fabs(getColourReflection(portNum)-midPoint)<2){
+//				integral+=fabs(getColourReflection(portNum))*kI;
+//				if (integral>1){
+//					integral = 1;
+//				}
+//			}
+//			diff+=integral;
+//			setMotorSpeed(left, speed+diff);
+//			setMotorSpeed(right, -speed+diff);
+//			oldTime = time1(T1);
+//			oldRef = getColourReflection(portNum);
+//			sleep(20);
+//		}
+//		}else if (state == 3){
+//		clearTimer(T1);
+//		int oldTime = -1;
+//		int integral = 0;
+//		int oldRef = 0;
+//		int diff = 0;
+//		int tempPort = 5-portNum;
+//		while (getColourReflection(tempPort)<target){
+//			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+
+//			if (fabs(getColourReflection(portNum)-midPoint)<2){
+//				integral+=fabs(getColourReflection(portNum))*kI;
+//				if (integral>1){
+//					integral = 1;
+//				}
+//			}
+//			diff+=integral;
+//			setMotorSpeed(left, speed+diff);
+//			setMotorSpeed(right, -speed+diff);
+//			oldTime = time1(T1);
+//			oldRef = getColourReflection(portNum);
+//			sleep(20);
+//		}
+//		}else{
+//		clearTimer(T1);
+//		int oldTime = -1;
+//		int integral = 0;
+//		int oldRef = 0;
+//		int diff = 0;
+//		while (getMotorEncoder(right)<target){
+//			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+
+//			if (fabs(getColourReflection(portNum)-midPoint)<5){
+//				integral+=fabs(getColourReflection(portNum))*kI;
+//				if (integral>1){
+//					integral = 1;
+//				}
+//			}
+//			diff+=integral;
+//			setMotorSpeed(left, speed+diff);
+//			setMotorSpeed(right, -speed+diff);
+//			oldTime = time1(T1);
+//			oldRef = getColourReflection(portNum);
+//			sleep(20);
+//		}
+//	}
+//	resetMotorEncoder(left);
+//	resetMotorEncoder(right);
+//}
+
+
 void lfPID(int state, float speed, float midPoint, float kP, float kI, float kD, float target, int portNum){
-	if (state == 1){
-		clearTimer(T1);
-		int oldTime = -1;
-		int integral = 0;
-		int oldRef = 0;
-		int diff = 0;
-		while (time1(T1)<target){
-			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
 
-			if (fabs(getColourReflection(portNum)-midPoint)<2){
-				integral+=fabs(getColourReflection(portNum))*kI;
-				if (integral>1){
-					integral = 1;
-				}
-			}
-			diff+=integral;
-			setMotorSpeed(left, speed+diff);
-			setMotorSpeed(right, -speed+diff);
-			oldTime = time1(T1);
-			oldRef = getColourReflection(portNum);
-			sleep(20);
-		}
-		}else if (state == 2){
-		clearTimer(T1);
-		int oldTime = -1;
-		int integral = 0;
-		int oldRef = 0;
-		int diff = 0;
-		int tempPort = 5-portNum;
-		while (getColourReflection(tempPort)>target){
-			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+	clearTimer(T1);
+	int oldTime = -1;
+	int integral = 0;
+	int oldRef = 0;
+	int diff = 0;
+	int tempPort = 5-portNum;
+	sleep(1);
 
-			if (fabs(getColourReflection(portNum)-midPoint)<2){
-				integral+=fabs(getColourReflection(portNum))*kI;
-				if (integral>1){
-					integral = 1;
+	while (true){
+		// Creates the conditions based on the state
+		switch (state){
+			case 1:
+				clearDebugStream();
+  			writeDebugStream("%d", !(time1(T1)<target));
+				if (!(time1(T1)<target)){
+			  	resetMotorEncoder(left);
+			  	resetMotorEncoder(right);
+					return;
 				}
-			}
-			diff+=integral;
-			setMotorSpeed(left, speed+diff);
-			setMotorSpeed(right, -speed+diff);
-			oldTime = time1(T1);
-			oldRef = getColourReflection(portNum);
-			sleep(20);
+				break;
+			case 2:
+				if (!(getColourReflection(tempPort)>target)){
+			  	resetMotorEncoder(left);
+			  	resetMotorEncoder(right);
+					return;
+				}
+				break;
+			case 3:
+				if (!(getColourReflection(tempPort)<target)){
+			  	resetMotorEncoder(left);
+			  	resetMotorEncoder(right);
+					return;
+				}
+				break;
+			default:
+				if (!(fabs(getMotorEncoder(right))<target)){
+			  	resetMotorEncoder(left);
+			  	resetMotorEncoder(right);
+					return;
+				}
+				break;
 		}
-		}else if (state == 3){
-		clearTimer(T1);
-		int oldTime = -1;
-		int integral = 0;
-		int oldRef = 0;
-		int diff = 0;
-		int tempPort = 5-portNum;
-		while (getColourReflection(tempPort)<target){
-			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
 
-			if (fabs(getColourReflection(portNum)-midPoint)<2){
-				integral+=fabs(getColourReflection(portNum))*kI;
-				if (integral>1){
-					integral = 1;
-				}
-			}
-			diff+=integral;
-			setMotorSpeed(left, speed+diff);
-			setMotorSpeed(right, -speed+diff);
-			oldTime = time1(T1);
-			oldRef = getColourReflection(portNum);
-			sleep(20);
-		}
-		}else{
-		clearTimer(T1);
-		int oldTime = -1;
-		int integral = 0;
-		int oldRef = 0;
-		int diff = 0;
-		while (getMotorEncoder(right)<target){
-			diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
+		// The proportion and derivative are added
+		diff = (getColourReflection(portNum)-midPoint)*kP+(getColourReflection(portNum)-oldRef)/(time1(T1)-oldTime)*kD;
 
-			if (fabs(getColourReflection(portNum)-midPoint)<5){
-				integral+=fabs(getColourReflection(portNum))*kI;
-				if (integral>1){
-					integral = 1;
-				}
-			}
-			diff+=integral;
-			setMotorSpeed(left, speed+diff);
-			setMotorSpeed(right, -speed+diff);
-			oldTime = time1(T1);
-			oldRef = getColourReflection(portNum);
-			sleep(20);
-		}
+		// The integral is added
+		//if (fabs(getColourReflection(portNum)-midPoint)<5){
+			integral+=(getColourReflection(portNum)-midPoint)*kI*(time1(T1)-oldTime);
+			//if (fabs(integral)>kI){
+			//	integral = integral/fabs(integral)*kI;
+			//}
+		//}
+		diff+=integral;
+
+		setMotorSpeed(left, speed+diff);
+		setMotorSpeed(right, -speed+diff);
+		oldTime = time1(T1);
+		oldRef = getColourReflection(portNum);
+		sleep(2);
+
 	}
-	resetMotorEncoder(left);
-	resetMotorEncoder(right);
 }
 
 // Function to line square

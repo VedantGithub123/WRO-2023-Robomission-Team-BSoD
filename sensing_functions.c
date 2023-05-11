@@ -64,9 +64,9 @@ int getColorHTMarker(){ // 0 is no color, 1 is blue, 2 is green
 
 // Function to get the color of a block
 int getColorHT(){ // 0 is no color, 1 is blue, 2 is green
-		if (htBlue(1)>17 && htHue(1)>25){
+		if (htBlue(1)>19 && htHue(1)>100){
 		return 1;
-		}else if (htGreen(1)>10 && htBlue(1)<11 && htHue(1)>45){
+		}else if (htGreen(1)>9 && htBlue(1)<11 && htHue(1)>90){
 		return 2;
 		}else{
 		return 0;

@@ -1,13 +1,13 @@
 void zone4(){ // This zone grabs the ships
 
 	// Gets into position to grab the small ship
-	movePID(50,-0.5,0,0,0.12,65,50,-0.5,0,0,0.12,-65);
+	movePID(50,-0.5,0,0,0.12,75,50,-0.5,0,0,0.12,-75);
 
 	movePID(50,-0.5,0,0,0.12,0,80,-0.8,0,0,0.12,565);
 
 	movePID(50,-0.5,0,0,0.12,543,50,-0.5,0,0,0.12,543);
 
-	movePID(30,-0.4,0,0,0.06,-230,30,-0.4,0,0,0.06,230);
+	movePID(30,-0.3,0,0,0.06,-230,30,-0.3,0,0,0.06,230);
 
 
 	// Grabs and brings the small ship to the line
@@ -18,7 +18,7 @@ void zone4(){ // This zone grabs the ships
 
 	setMotorSpeed(grab, 20);
 
-	movePID(100,-0.6,0,0,0.16,715,100,-0.6,0,0,0.16,-715);
+	movePID(100,-0.6,0,0,0.16,705,100,-0.6,0,0,0.16,-705);
 
 	setMotorSpeed(grab, -100);
 
@@ -43,9 +43,9 @@ void zone4(){ // This zone grabs the ships
 
 	movePID(60,-0.5,0,0,0.16,-570,60,-0.5,0,0,0.16,570);
 
-	movePID(60,-0.4,0,0,0.1,565,30,-0.9,0,0,0.06,0);
+	movePID(60,-0.4,0,0,0.1,568,30,-0.9,0,0,0.06,0);
 
-	movePID(40,-0.5,0,0,0.1,880,40,-0.5,0,0,0.1,-880);
+	movePID(40,-0.3,0,0,0.1,880,40,-0.3,0,0,0.1,-880);
 
 
 	// Activate the mechanical AND gate

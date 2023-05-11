@@ -2,7 +2,7 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 	startTask(sense); // Starts the task to sense the blocks in parallel while moving
 
-	movePID(30,-0.5,0,0,0.9,-700,30,-0.5,0,0,0.9,700); // Pushes the ship into the fueling area
+	movePID(30,-0.5,0,0,0.3,-700,30,-0.5,0,0,0.3,700); // Pushes the ship into the fueling area
 
 	movePID(40,-1,0,0,0.9,30,40,-1,0,0,0.9,-30);
 
@@ -26,9 +26,9 @@ void zone1(){ // This zone completes the fueling, sensing the marking blocks, an
 
 
 	// Gets into position for picking blocks
-	movePID(30,-0.5,0,0,0.1,-178,30,-0.5,0,0,0.1,178);
+	movePID(15,-10.5,0,0,0.06,-187,15,-10.5,0,0,0.06,187;
 
-	movePID(15,-0.5,0,0,0.015,0,30,-0.5,0,0,0.1,547);
+	movePID(15,-0.5,0,0,0.015,0,15,-10.5,0,0,0.06,549);
 
 	sleep(20);
 }
