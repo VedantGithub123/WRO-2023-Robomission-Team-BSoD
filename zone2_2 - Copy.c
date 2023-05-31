@@ -188,11 +188,11 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 
 
 
-	movePID(50,-0.5,0,0,0.09,240,50,-0.5,0,0,0.09,-240);
+	movePID(50,-0.5,0,0,0.09,210,50,-0.5,0,0,0.09,-210);
 
-	movePID(40,-0.4,0,0,0.09,567,15,-0.5,0,0,0.5,0);
+	movePID(30,-0.5,0,0,0.06,574,15,-0.5,0,0,0.5,0);
 
-	movePID(50,-0.5,0,0,0.09,-400,50,-0.5,0,0,0.09,400);
+	movePID(50,-0.5,0,0,0.09,-350,50,-0.5,0,0,0.09,350);
 
 	setMotorSpeed(left, -20);
 	setMotorSpeed(right, 20);
@@ -215,7 +215,7 @@ void zone2(){ // This zone picks up the cargo, puts it in the ship, and goes bac
 	setMotorSpeed(left, -10);
 	setMotorSpeed(right, 10);
 
-	waitUntil(getMotorEncoder(right)>22);
+	waitUntil(getMotorEncoder(right)>14);
 
 	setMotorSpeed(left, 0);
 	setMotorSpeed(right, 0);
